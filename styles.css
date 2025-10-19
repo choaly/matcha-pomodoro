@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
+/* colors */
+
+:root {
+    --darkest-green: #718355;
+    --background-green: #97A97C;
+    --light-green: ;
+    --lightest-green: #E9F5DB;
+    --dark-brown: #5C3B2E;
+    --yellow: #FBE2A9;
+
+    font-family: "Pixelify Sans", serif;
+    padding: 25px;
+    background-color: var(--background-green);
+}
+
+/* text style */
+h1 {
+    color: var(--dark-brown);
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.62619rem;
+    /* margin: 20px; */
+    margin: 0;
+}
+
+.shrink-icon {
+    /* object-fit: cover; */
+}
+
+.close-icon {
+    /* width: 28px;
+    height: 28px;
+    object-fit: cover; */
+}
+
+button {
+    border: 3px solid var(--darkest-green);
+    background-color: var(--lightest-green);
+    color: var(--darkest-green);
+    padding: 0 20px;
+    font-size: 1.5rem;
+    font-family: "Pixelify Sans", serif;
+    width: 150px;
+}
+
+button:hover {
+    transform: scale(1.1); /* Scale the image by 1.1 times when hovered */
+}
+
+/* header */
+.header-container {
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center; */
+    justify-content: center;
+}
+
+.header-container h2 {
+    color: var(--darkest-green);
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+
+    /* text-align: center; */
+    flex-grow: 1; /* Take up remaining space if needed */
+    gap: 2rem;
+    /* max-width: 230px; */
+
+    border: 5px solid var(--darkest-green);
+    padding: 75px;
+    background-image: url("assets/wood.png");
+}
+
+
+
+.slider-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* The slider itself */
+.slider {
+  appearance: none;   /* Override default CSS styles */
+  width: 500px;
+  height: 5px;
+  background: var(--dark-brown);
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px;
+  height: 25px;
+  background: white;
+  border: 2px solid var(--dark-brown);
+  cursor: pointer;
+}
+
+#matcha-img {
+    width: 100px;
+    height: 100px;
+}
+
+#pause-btn {
+
+}
+
+#resume-btn {
+    display: none;
+}
+
+#close-btn {
+    display: none;
+}

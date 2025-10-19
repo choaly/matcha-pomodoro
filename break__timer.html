@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matcha Pomodoro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h2>Matcha Pomodoro</h2>
+            <div class="shrink-close-icons">
+                <img src="../assets/shrink-icon.png" alt="Shrink Icon" class="shrink-icon">
+                <img src="../assets/close-icon.png" alt="Close Icon" class="close-icon">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Time for a break!</h1>
+            <img src="assets/matcha_icon.png" alt="Matcha Icon" id="matcha-img">
+            <h1 id="timer-display"></h1>
+            <button id="pause-btn">Pause</button>
+            <button id="resume-btn">Resume</button>
+            <button id="cancel-btn">Cancel</button>
+            <button id="close-btn">Close</button>
+        </div>
+    </main>
+    
+    <script>
+        const timerDisplay = document.getElementById("timer-display");
+        const pauseBtn = document.getElementById("pause-btn");
+        const resumeBtn = document.getElementById("resume-btn");
+        const cancelBtn = document.getElementById("cancel-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const firstHeaderInContainer = document.querySelector('div h1');
+        let userBreakVal = sessionStorage.getItem("userBreakVal");
+
+        timerDisplay.textContent = userBreakVal + ":00";
+
+        let remainingMS = parseInt(userBreakVal) * 60 * 1000; // userBreakVal minutes converted to milliseconds
+        let endTime = Date.now() + remainingMS;
+        let timer;
+
+        function updateTimer() {
+            const timeLeft = endTime - Date.now();
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                timerDisplay.textContent = "00:00";
+
+                firstHeaderInContainer.textContent = "All done!";
+                pauseBtn.style.display = "none";
+                resumeBtn.style.display = "none";
+                cancelBtn.style.display = "none";
+                closeBtn.style.display = "block";
+                //include a sound
+                return;
+            }
+
+            const minutes = Math.floor(timeLeft / 1000 / 60);
+            const seconds = Math.ceil((timeLeft / 1000) % 60);
+
+            timerDisplay.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2,"0");
+        }
+
+        timer = setInterval(updateTimer, 1000);
+
+        pauseBtn.addEventListener("click", () => {
+            clearInterval(timer);
+            remainingMS = endTime - Date.now();
+
+            resumeBtn.style.display = "block";
+            pauseBtn.style.display = "none";
+        });
+
+        resumeBtn.addEventListener("click", () => {
+            endTime = Date.now() + remainingMS;
+            timer = setInterval(updateTimer, 1000);
+
+            pauseBtn.style.display = "block";
+            resumeBtn.style.display = "none";
+        });
+
+        cancelBtn.addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

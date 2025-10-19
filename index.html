@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matcha Pomodoro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h2>Matcha Pomodoro</h2>
+            <!-- <div class="shrink-close-icons">
+                <img src="../assets/shrink-icon.png" alt="Shrink Icon" class="shrink-icon">
+                <img src="../assets/close-icon.png" alt="Close Icon" class="close-icon">
+            </div> -->
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Let's get some work done!</h1>
+            <button id="focus-btn">Focus</button>
+            <button id="break-btn">Break</button>
+        </div>
+    </main>
+    
+    <script>
+        const focusBtn = document.getElementById("focus-btn");
+        const breakBtn = document.getElementById("break-btn");
+
+        focusBtn.addEventListener("click", () => {
+            window.location.href = "focus__time-select.html";
+        })
+
+        breakBtn.addEventListener("click", () => {
+            window.location.href = "break__time-select.html";
+        })
+    </script>
+</body>
+</html>

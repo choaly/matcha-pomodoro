@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matcha Pomodoro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h2>Matcha Pomodoro</h2>
+            <div class="shrink-close-icons">
+                <img src="../assets/shrink-icon.png" alt="Shrink Icon" class="shrink-icon">
+                <img src="../assets/close-icon.png" alt="Close Icon" class="close-icon">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>How long do you want to focus?</h1>
+            <h1 id="slider-value-display"></h1>
+            <div class="slider-container">
+                <input type="range" min="1" max="60" class="slider" id="focus-slider">
+            </div>
+            <button id="start-btn">Start</button>
+        </div>
+    </main>
+    
+    <script>
+        const focusSlider = document.getElementById("focus-slider");
+        const sliderValueDisplay = document.getElementById("slider-value-display");
+        const startBtn = document.getElementById("start-btn");
+        let userFocusVal;
+        if (sessionStorage.getItem("userFocusVal") == null) {
+            userFocusVal = 30; //default val is 30 min
+        } else {
+            userFocusVal = sessionStorage.getItem("userFocusVal");
+        }
+
+        focusSlider.value = userFocusVal;
+        sliderValueDisplay.textContent = userFocusVal + ":00";
+
+        focusSlider.addEventListener("input", (event) => {
+            userFocusVal = event.target.value;
+            sliderValueDisplay.textContent = userFocusVal + ":00";
+        })
+
+        startBtn.addEventListener("click", () => {
+            sessionStorage.setItem("userFocusVal", userFocusVal); // somehow pass in sliderValueDisplay's value
+            window.location.href = "focus__timer.html";
+        })
+
+    </script>
+</body>
+</html>
