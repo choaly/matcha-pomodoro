@@ -1,12 +1,15 @@
 Matcha Pomodoro is a pixel art pomodoro timer desktop widget application. Built with HTML, CSS, JavaScript, and ElectronJS. Inspired by [@NashAllery](https://www.instagram.com/nashallery).
 
-![Matcha Pomodoro Screenshot](assets/app_screenshot.png)
+![Matcha Pomodoro Screenshot](assets/app_screenshot.png =20x30)
 
 ## Features
 
-- Feature 1: [Short description]
-- Feature 2: [Short description]
-- Feature 3: [Short description]
+
+- **Custom Focus Timer:** Set a focus session anywhere from 1 to 60 minutes.  
+- **Custom Break Timer:** Set a break session anywhere from 1 to 20 minutes.  
+- **Start/Pause/Reset:** Easily start, pause, or reset your timer at any time.  
+- **Simple and Intuitive Interface:** Minimalist design focused on productivity.  
+- **Desktop Notifications (wip):** Alerts when focus or break sessions end.
 
 ---
 
@@ -32,4 +35,4 @@ npm start
 
 npm run make
 
-The packaged app will appear in the out/make/ folder.
+#The packaged app will appear in the out/make/ folder.
