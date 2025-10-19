@@ -1,6 +1,6 @@
 Matcha Pomodoro is a pixel art pomodoro timer desktop widget application. Built with HTML, CSS, JavaScript, and ElectronJS. Inspired by [@NashAllery](https://www.instagram.com/nashallery).
 
-![Matcha Pomodoro Screenshot](assets/app_screenshot.png =20x30)
+<img src="assets/screenshot.png" alt="MyApp Screenshot" width="200px"/>
 
 ## Features
 
